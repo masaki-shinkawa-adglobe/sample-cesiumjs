@@ -1,7 +1,9 @@
+import MapViewer from '../components/MapViewer';
+
 export default function Home() {
   return (
     <main>
-      <div>Hello world!</div>
+      <MapViewer />
     </main>
   );
 }

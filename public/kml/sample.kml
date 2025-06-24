@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+  <Document>
+    <name>Sample Configuration</name>
+    <!-- 初期カメラビュー -->
+    <LookAt>
+      <longitude>140.01706275876157</longitude>
+      <latitude>35.66708110510688</latitude>
+      <range>8482.661786862154</range>
+      <tilt>17.35</tilt>
+      <heading>332.06</heading>
+    </LookAt>
+
+    <!-- 東京都を一周するポリライン -->
+    <Placemark>
+      <name>Tokyo Border</name>
+      <Style>
+        <LineStyle><color>ff0000ff</color><width>5</width></LineStyle>
+      </Style>
+      <LineString>
+        <altitudeMode>absolute</altitudeMode>
+        <coordinates>
+          139.55,35.80,350
+          139.95,35.80,350
+          139.95,35.50,350
+          139.55,35.50,350
+          139.55,35.80,350
+        </coordinates>
+      </LineString>
+    </Placemark>
+
+    <!-- 半透明黄色立方体 -->
+    <Placemark>
+      <name>Yellow Rectangle</name>
+      <Style>
+        <PolyStyle><color>7f00ffff</color></PolyStyle>
+        <LineStyle><color>7f00ffff</color><width>2</width></LineStyle>
+      </Style>
+      <Polygon>
+        <extrude>1</extrude>
+        <altitudeMode>absolute</altitudeMode>
+        <outerBoundaryIs>
+          <LinearRing>
+            <coordinates>
+              139.625775,35.802252,350
+              139.625775,35.811260,350
+              139.575000,35.811260,350
+              139.524225,35.811260,350
+              139.524225,35.802252,350
+              139.524225,35.793244,350
+              139.575000,35.793244,350
+              139.625775,35.793244,350
+              139.625775,35.802252,350
+            </coordinates>
+          </LinearRing>
+        </outerBoundaryIs>
+      </Polygon>
+    </Placemark>
+    <!-- 北西コーナーにピンを立てる -->
+    <Placemark>
+      <name>NW Corner</name>
+      <Point>
+        <coordinates>139.55,35.80,350</coordinates>
+      </Point>
+    </Placemark>
+
+    <!-- 半透明LIMEの矩形 -->
+    <Placemark>
+      <name>LIME Rectangle</name>
+      <Style>
+        <PolyStyle><color>7f00ff00</color></PolyStyle>
+        <LineStyle><color>ff00ff00</color><width>2</width></LineStyle>
+      </Style>
+      <Polygon>
+        <extrude>1</extrude>
+        <altitudeMode>absolute</altitudeMode>
+        <outerBoundaryIs>
+          <LinearRing>
+            <coordinates>
+              139.55,35.80,350
+              139.60,35.80,350
+              139.60,35.75,350
+              139.55,35.75,350
+              139.55,35.80,350
+            </coordinates>
+          </LinearRing>
+        </outerBoundaryIs>
+      </Polygon>
+    </Placemark>
+  </Document>
+</kml>

@@ -1,34 +1,47 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Sample CesiumJS Proof of Concept
 
-## Getting Started
+## 概要
+本プロジェクトは Next.js と CesiumJS を用いて、3D地図上のエリアを可視化するデモです。
+以下の機能を実装しています：
 
-First, run the development server:
+- Cesium Ion の Photorealistic 3D Tiles 表示
+- KML ファイルによるポイント、ライン、ポリゴン (四角形・円) の読み込み
+- 地形への垂直誇張設定
+- カメラ初期ビューとユーザー操作による動的カメラ制御
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 主な構成
+- `src/components/MapViewer.tsx`：Cesium Viewer の初期化と KML 読み込みロジック
+- `public/kml/sample.kml`：サンプルKML (LookAt, LineString, Polygon 定義)
+- `public/Cesium`：Cesium のワーカーやウィジェット CSS などの静的アセット
+- `.env.local`：Cesium Ion アクセストークン設定
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## セットアップと実行方法
+1. リポジトリをクローン
+   ```bash
+   git clone <repo-url>
+   cd sample-cesiumjs
+   ```
+2. 依存パッケージをインストール
+   ```bash
+   npm install
+   ```
+3. Cesium Ion のアクセストークンを取得し、ルートに `.env.local` を作成
+   ```dotenv
+   NEXT_PUBLIC_CESIUM_ION_TOKEN=YOUR_CESIUM_ION_ACCESS_TOKEN
+   ```
+4. Cesium の静的アセットを配置
+   ```bash
+   cp -R node_modules/cesium/Build/Cesium public/Cesium
+   ```
+5. 開発サーバーを起動
+   ```bash
+   npm run dev
+   ```
+6. ブラウザで http://localhost:3000 を開く
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 注意点
+- `.gitignore` により `public/Cesium` は無視されています。コミットする際は `.gitkeep` 以外を除外してください。
+- KML ファイルのパスは `/kml/sample.kml` を想定しています。必要に応じて変更してください。
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## ライセンス
+MIT
