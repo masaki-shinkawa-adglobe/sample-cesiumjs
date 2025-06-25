@@ -11,24 +11,6 @@
       <heading>332.06</heading>
     </LookAt>
 
-    <!-- 東京都を一周するポリライン -->
-    <Placemark>
-      <name>Tokyo Border</name>
-      <Style>
-        <LineStyle><color>ff0000ff</color><width>5</width></LineStyle>
-      </Style>
-      <LineString>
-        <altitudeMode>absolute</altitudeMode>
-        <coordinates>
-          139.55,35.80,350
-          139.95,35.80,350
-          139.95,35.50,350
-          139.55,35.50,350
-          139.55,35.80,350
-        </coordinates>
-      </LineString>
-    </Placemark>
-
     <!-- 半透明黄色立方体 -->
     <Placemark>
       <name>Yellow Rectangle</name>
@@ -86,6 +68,28 @@
           </LinearRing>
         </outerBoundaryIs>
       </Polygon>
+    </Placemark>
+
+    <!-- 高度変化ポリライン -->
+    <Placemark>
+      <name>Elevation Profile</name>
+      <Style>
+        <!-- 赤色の線 -->
+        <LineStyle><color>ff0000ff</color><width>4</width></LineStyle>
+      </Style>
+      <LineString>
+        <altitudeMode>absolute</altitudeMode>
+        <coordinates>
+          <!-- 始点を矩形中心(139.575,35.775)に設定 -->
+          139.575000,35.775000,350
+          <!-- 空中で曲がる: 600mに上昇しつつ進行 -->
+          139.600000,35.802252,600
+          <!-- 直進: 同高度で移動 -->
+          139.550000,35.802252,600
+          <!-- 斜め降下しつつ終点へ戻る -->
+          139.524225,35.802252,350
+        </coordinates>
+      </LineString>
     </Placemark>
   </Document>
 </kml>
